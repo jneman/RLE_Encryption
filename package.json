@@ -1,0 +1,16 @@
+{
+  "name": "eb-node-encoder",
+  "version": "1.0.0",
+  "description": "String encryption app for Elastic Beanstalk",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Encoder</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; background-color: #f4f7f6; }
+        .container { display: flex; flex-direction: column; gap: 15px; width: 450px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        label { font-weight: bold; margin-bottom: -5px; }
+        
+        /* Input is strictly capped at 50 */
+        #inputField { padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 6px; }
+        
+        /* Output is unlimited and scrollable */
+        #outputField { 
+            padding: 12px; 
+            font-size: 16px; 
+            border: 1px solid #ddd; 
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            white-space: nowrap; 
+            overflow-x: auto; /* Standard horizontal scroll */
+            resize: vertical; /* Allows you to pull the box taller if needed */
+            min-height: 40px;
+            font-family: monospace; /* Better for reading encrypted codes */
+        }
+
+        .btn-field { 
+            background-color: #007bff; 
+            color: white; 
+            cursor: pointer; 
+            text-align: center; 
+            font-weight: bold; 
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <label>Input (Max 50 characters):</label>
+    <input type="text" id="inputField" maxlength="50" placeholder="Type here...">
+
+    <label>Encrypted Output (Unlimited):</label>
+    <textarea id="outputField" readonly placeholder="Result..."></textarea>
+
+    <input type="button" id="encryptBtn" class="btn-field" value="Click to encrypt">
+</div>
+
+<script>
+    const inputField = document.getElementById('inputField');
+    const outputField = document.getElementById('outputField');
+    const encryptBtn = document.getElementById('encryptBtn');
+
+    function encryptString(s) {
+        // Filters out control characters but keeps standard spaces
+        const cleanString = s.replace(/[\x00-\x08\x0B-\x1F\x7F\x09\x0A]/g, "");
+        if (cleanString.length === 0) return "";
+
+        let prevChar = '';
+        let count = 0;
+        let result = []; // Acting as our "StringBuffer"
+
+        for (let i = 0; i < cleanString.length; i++) {
+            let ch = cleanString.charAt(i);
+            if (ch === prevChar) {
+                count++;
+            } else {
+                if (prevChar !== '') result.push(count + prevChar);
+                prevChar = ch;
+                count = 1;
+            }
+        }
+        if (prevChar !== '') result.push(count + prevChar);
+        return result.join('');
+    }
+
+    encryptBtn.addEventListener('click', function() {
+        const originalText = inputField.value;
+
+        if (originalText.trim().length === 0) {
+            alert("Please type something first.");
+            outputField.value = "";
+            return;
+        }
+
+        const encryptedText = encryptString(originalText);
+        
+        // Output field now accepts the full length without an error message
+        outputField.value = encryptedText;
+        
+        // Optional: Focus the field so user can scroll immediately
+        outputField.scrollLeft = 0; 
+    });
+</script>
+
+</body>
+</html>
+
