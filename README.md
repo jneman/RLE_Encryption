@@ -153,26 +153,25 @@ The application was tested locally with the following scenarios:
 ## How to Run Locally
 
 1. Install Node.js and dependencies:
-   ```bash
-   npm install
+2. Make sure to get the sources from the GitHub.
 
-Start the server:
+Run the following command:
 
 node app.js
+
 Using your browser, go to http://localhost:8080 to test the encryption UI.
 Deployment
 
-To deploy this application to AWS Elastic Beanstalk, follow these steps:
+## To deploy this application to AWS Elastic Beanstalk, follow these steps:
 
-Files to include in nodejs.zip
-
-Include the following files in the zip file (do not include the screenshots/ folder):
+You need to include the following files to nodejs.zip file:
 
 index.html # Frontend HTML file
 app.js # Node.js backend using Express.js
 package.json # Node.js project configuration
 package-lock.json # Lock file for Node.js dependencies
-Steps to deploy
+
+## Steps to deploy
 Log in to your AWS Management Console.
 Go to Elastic Beanstalk → Applications → Create Application.
 Application name: RLE_Encryption
@@ -183,7 +182,8 @@ Click Create.
 Wait a few minutes for the environment to launch.
 The environment should show a green health status if everything is running correctly.
 Click on the URL under Domain to open the RLE Encryption UI in your browser.
-Notes
+
+## Notes
 For the sake of simplicity, following the 10 steps above creates a
 Single Instance environment to keep costs low and the setup simple.
 Monitoring: Use the Elastic Beanstalk dashboard to verify the instance is healthy.
