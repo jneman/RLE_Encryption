@@ -1,12 +1,15 @@
 # RLE_Encryption
 
-This project implements **Run-Length Encoding (RLE) encryption** for strings.  
-It includes a simple web UI for users to enter text, encrypt it using RLE, and  
-view the result.
+This project implements **Run-Length Encoding (RLE) encryption** for strings.It includes a simple  
+web UI for users to enter text, encrypt it using RLE, and view the result.
 
-The backend logic was originally implemented in **Java** and then translated to  
-JavaScript for integration with the web UI using AI. The frontend idea was all  
-mine, but was coded using AI.
+This project falls under Category A: Full-Stack Web Application because it includes both a frontend user  
+interface (HTML/JavaScript) and a backend service (Node.js with Express) that processes requests and  
+performs RLE encryption. The application is fully integrated and deployed on AWS Elastic Beanstalk,  
+demonstrating end-to-end functionality.
+
+The backend logic was originally implemented in **Java** and then translated to JavaScript for  
+integration with the web UI using AI. The frontend idea was all mine, but was coded using AI.
 
 ---
 
@@ -17,6 +20,26 @@ mine, but was coded using AI.
 - Output box scrolls if encrypted text exceeds 50 characters.
 - Web UI hosted on **AWS Elastic Beanstalk**.
 - Health Monitoring for instances via AWS CloudWatch.
+
+## Full Scalable Architecture
+
+```text
+   Users (Browsers)
+         |
+         v
+   Elastic Load Balancer
+      /              \
+      v               v
+   EC2 Instance      EC2 Instance
+      (Node.js)      (Node.js)
+         |              |
+         v              v
+   RLE Processing    RLE Processing
+
+✔ Load balancing
+✔ Auto scaling (1 → 2 instances)
+✔ High availability
+```
 
 ---
 
@@ -150,10 +173,6 @@ Click on the URL under Domain to open the RLE Encryption UI in your browser.
 
 ## Notes
 
-For simplicity, following the 10 steps above creates a Single Instance environment
-to keep costs low and setup simple.
+For simplicity, the above steps creates a Single Instance environment
+to keep costs low and setup simple.  
 Monitoring: Use the Elastic Beanstalk dashboard to verify the instance is healthy.
-
-```
-
-```
