@@ -107,6 +107,26 @@ The application was tested locally with the following scenarios:
 
 ---
 
+### Monthly Cost Estimate (High Availability)
+
+| Component                         | Estimated Cost      |
+| :-------------------------------- | :------------------ |
+| **EC2 Compute (2 Instances)**     | $15.18              |
+| **Load Balancer (Base + 1 LCU)**  | $22.26              |
+| **EBS Storage (Disk)**            | $1.28               |
+| **S3 Storage (Backups/Versions)** | $0.23               |
+| **TOTAL**                         | **~$38.95 / month** |
+
+## Storage and Backups (S3)
+
+AWS Elastic Beanstalk automatically stores application versions in Amazon S3.  
+Each deployment is saved as a source bundle, allowing version tracking and easy  
+rollback. This provides a reliable and durable backup mechanism without any  
+manual configuration.
+
+If the application is no longer in use, make sure to delete the stored files  
+from the S3 bucket to avoid unnecessary storage costs.
+
 ## Repository: https://github.com/jneman/RLE_Encryption
 
 ## Project Structure
@@ -147,7 +167,10 @@ Files to include in a nodejs.zip
 
 Include the following files:
 
-index.html, app.js, package.json, package-lock.json
+index.html  
+app.js  
+package.json  
+package-lock.json
 
 ## Steps to deploy
 
