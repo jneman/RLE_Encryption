@@ -2,10 +2,6 @@
 
 This project implements **Run-Length Encoding (RLE) encryption** for strings.  
 It includes a simple web UI for users to enter text, encrypt it using RLE, and  
-# RLE_Encryption
-
-This project implements **Run-Length Encoding (RLE) encryption** for strings.  
-It includes a simple web UI for users to enter text, encrypt it using RLE, and  
 view the result.  
 
 The backend logic was originally implemented in **Java** and then translated to  
