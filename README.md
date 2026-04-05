@@ -2,30 +2,15 @@
 
 This project implements **Run-Length Encoding (RLE) encryption** for strings.  
 It includes a simple web UI for users to enter text, encrypt it using RLE, and  
+# RLE_Encryption
+
+This project implements **Run-Length Encoding (RLE) encryption** for strings.  
+It includes a simple web UI for users to enter text, encrypt it using RLE, and  
 view the result.  
 
 The backend logic was originally implemented in **Java** and then translated to  
 JavaScript for integration with the web UI using AI. The frontend idea was all  
 mine, but was coded using AI.  
-
----
-
-## Project Structure
-
-RLE_Encryption/
-├─ README.md           # Project documentation
-├─ index.html          # Frontend HTML file
-├─ app.js              # Node.js backend using Express.js
-├─ package.json        # Node.js project configuration
-├─ package-lock.json   # Lock file for Node.js dependencies
-└─ screenshots/        # Folder containing project screenshots
-   ├─ RLE-Encryption.png
-   ├─ EncryptAString.png
-   ├─ InstanceTrafficAndScaling.png
-   ├─ Monitoring.png
-   ├─ Networking.png
-   ├─ Terminating.png
-   └─ Terminated.png
 
 ---
 
@@ -118,6 +103,24 @@ node app.js
 
 Using your browser, go to http://localhost:8080
  to test the encryption UI.
+
+Repository: https://github.com/jneman/RLE_Encryption
+Project Structure
+
+RLE_Encryption/ ← Repository root
+├─ README.md ← Project documentation
+├─ index.html ← Frontend HTML file
+├─ app.js ← Node.js backend using Express.js
+├─ package.json ← Node.js project configuration
+├─ package-lock.json ← Lock file for Node.js dependencies
+└─ screenshots/ ← Folder containing project screenshots
+├─ RLE-Encryption.png
+├─ EncryptAString.png
+├─ InstanceTrafficAndScaling.png
+├─ Monitoring.png
+├─ Networking.png
+├─ Terminating.png
+└─ Terminated.png
 
 To deploy this application to AWS Elastic Beanstalk, follow these steps:
 Files to include in nodejs.zip
